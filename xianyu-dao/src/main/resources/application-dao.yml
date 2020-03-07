@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mybatis?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/xianyu?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8
     username: test
     password: test
     druid:
@@ -18,7 +18,7 @@ spring:
       test-on-borrow: false
 
 mybatis:
-  type-aliases-package: edu.nf.homework.entity
+  type-aliases-package: edu.nf.xianyu
   mapper-locations: classpath:/mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

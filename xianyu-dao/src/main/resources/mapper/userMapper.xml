@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.xianyu.login.dao.LoginDao">
+
+    <resultMap id="userMap" type="edu.nf.xianyu.user.Entity.User">
+        <id property="userId" column="user_id"/>
+        <result property="userNick" column="user_nick"/>
+        <result property="userName" column="user_name"/>
+        <result property="userBindMoblie" column="user_bind_moblie"/>
+        <result property="password" column="user_password"/>
+        <result property="urlHeadUrl" column="user_headUrl"/>
+        <result property="userCity" column="user_city"/>
+        <result property="userCreateTime" column="user_create_time"/>
+    </resultMap>
+
+    <select id="userLogin" resultMap="userMap" parameterType="string">
+        select * from user_info where user_bind_moblie=#{param1} and user_password=#{param2}
+    </select>
+
+</mapper>
