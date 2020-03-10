@@ -1,7 +1,6 @@
 package edu.nf.xianyu.login.service;
 
-import edu.nf.xianyu.login.dao.LoginDao;
-import edu.nf.xianyu.user.Entity.User;
+import edu.nf.xianyu.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

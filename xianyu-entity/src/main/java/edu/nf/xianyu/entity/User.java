@@ -1,4 +1,4 @@
-package edu.nf.xianyu.user.Entity;
+package edu.nf.xianyu.entity;
 
 import lombok.Data;
 

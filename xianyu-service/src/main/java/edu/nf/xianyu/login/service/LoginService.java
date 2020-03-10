@@ -1,6 +1,6 @@
 package edu.nf.xianyu.login.service;
 
-import edu.nf.xianyu.user.Entity.User;
+import edu.nf.xianyu.entity.User;
 
 /**
  * @author LWP

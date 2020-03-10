@@ -1,7 +1,7 @@
 package edu.nf.test;
 
 import edu.nf.xianyu.login.service.LoginService;
-import edu.nf.xianyu.user.Entity.User;
+import edu.nf.xianyu.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
