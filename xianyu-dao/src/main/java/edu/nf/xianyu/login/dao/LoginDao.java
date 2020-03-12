@@ -8,5 +8,8 @@ import edu.nf.xianyu.entity.User;
  * @date 2020/3/6
  */
 public interface LoginDao {
+
     User userLogin(String userName,String password);
+    void deleteUser(int userId);
+    void updateUser(User user);
 }
