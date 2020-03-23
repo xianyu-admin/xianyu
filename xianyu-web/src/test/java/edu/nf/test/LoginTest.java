@@ -1,6 +1,6 @@
 package edu.nf.test;
 
-import edu.nf.xianyu.login.service.LoginService;
+import edu.nf.xianyu.login.LoginService;
 import edu.nf.xianyu.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class LoginTest {
 
     @Test
     void TestLogin(){
-        User user = service.userLogin("meet","123");
+        User user = service.userLogin("17817537527","123");
         System.out.println(user.getUserBindMoblie());
     }
 }

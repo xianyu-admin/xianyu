@@ -1,12 +1,15 @@
-package edu.nf.xianyu.login.service.impl;
+package edu.nf.xianyu.login.impl;
 
+import com.github.pagehelper.PageInfo;
 import edu.nf.xianyu.exception.XianyuException;
+import edu.nf.xianyu.login.LoginService;
 import edu.nf.xianyu.login.dao.LoginDao;
-import edu.nf.xianyu.login.service.LoginService;
 import edu.nf.xianyu.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author LWP
@@ -27,5 +30,16 @@ public class LoginServerImpl implements LoginService {
         }else {
             return user;
         }
+    }
+
+    @Override
+    public PageInfo<User> listUser(Integer pageNum, Integer pageSize) {
+        try{
+            PageInfo<User> pageInfo = new PageInfo<>(dao.getUser(pageNum,pageSize));
+            return pageInfo;
+        }catch(Exception e){
+            throw new XianyuException("服务器错误");
+        }
+
     }
 }

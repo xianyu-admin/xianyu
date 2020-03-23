@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.xianyu.shopping.dao.CommodityDao">
+
+    <resultMap id="commodityMap" type="edu.nf.xianyu.entity.Commodity">
+        <id property="commodityId" column="commodity_id"/>
+        <result property="categroyId" column="category_id"/>
+        <result property="commodityName" column="commodity_name"/>
+        <result property="commodityPrice" column="commodity_price"/>
+        <result property="commodityLable" column="commodity_lable"/>
+        <result property="commoditySpec" column="commodity_spec"/>
+        <result property="commodityDesc" column="commodity_desc"/>
+        <result property="commoditySep" column="commodity_sep"/>
+        <result property="commodityOrgin" column="commodity_orgin"/>
+        <result property="commodityPci" column="commodity_pci"/>
+        <result property="commodityStatus" column="commodity_status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+    
+    <resultMap id="categroyMap" type="edu.nf.xianyu.entity.Categroy">
+        <id property="categroyId" column="categroy_id"/>
+        <result property="categroyCode" column="category_code"/>
+        <result property="categroyName" column="category_name"/>
+        <result property="categroyLeve" column="category_level"/>
+        <result property="categroySeq" column="category_seq"/>
+        <result property="endFlag" column="end_flag"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <select id="getCommodity" resultMap="commodityMap">
+        select  * from commodity_info
+    </select>
+
+    <update id="updateCommodity" parameterType="edu.nf.xianyu.entity.Commodity">
+            update
+    </update>
+
+</mapper>

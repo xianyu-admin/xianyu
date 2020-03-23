@@ -2,7 +2,7 @@ package edu.nf.xianyu.controller;
 
 
 import edu.nf.xianyu.controller.vo.ResponseVo;
-import edu.nf.xianyu.login.service.LoginService;
+import edu.nf.xianyu.login.LoginService;
 import edu.nf.xianyu.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

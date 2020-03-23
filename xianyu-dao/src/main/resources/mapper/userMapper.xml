@@ -18,6 +18,10 @@
         select * from user_info where user_bind_moblie=#{param1} and user_password=#{param2}
     </select>
 
+    <select id="getUser" resultMap="userMap">
+        select * from user_info
+    </select>
+
     <delete id="deleteUser" parameterType="integer">
         delete from user_info where user_id = #{userId}
     </delete>

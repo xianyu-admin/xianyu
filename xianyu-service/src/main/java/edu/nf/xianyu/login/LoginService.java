@@ -1,6 +1,9 @@
-package edu.nf.xianyu.login.service;
+package edu.nf.xianyu.login;
 
+import com.github.pagehelper.PageInfo;
 import edu.nf.xianyu.entity.User;
+
+import java.util.List;
 
 /**
  * @author LWP
@@ -10,4 +13,5 @@ import edu.nf.xianyu.entity.User;
 public interface LoginService {
 
     User userLogin(String userName,String password);
+    PageInfo<User> listUser(Integer pageNum, Integer pageSize);
 }
