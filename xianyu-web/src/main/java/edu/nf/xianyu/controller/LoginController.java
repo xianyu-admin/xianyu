@@ -22,7 +22,6 @@ public class LoginController extends BaseController {
     @GetMapping("/auth/login")
     public ResponseVo userLogin(String userName,String password){
         User user = service.userLogin(userName,password);
-
         return success(user);
     }
 }
