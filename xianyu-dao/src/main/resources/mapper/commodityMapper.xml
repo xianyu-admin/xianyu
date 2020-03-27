@@ -19,6 +19,22 @@
         <result property="updateTime" column="update_time"/>
     </resultMap>
     
+    <resultMap id="userCommid" type="edu.nf.xianyu.entity.UserCommid">
+        <result property="userId" column="user_id"/>
+        <result property="commodityId" column="commodity_id"/>
+    </resultMap>
+
+    <resultMap id="userMap" type="edu.nf.xianyu.entity.User">
+        <id property="userId" column="user_id"/>
+        <result property="userNick" column="user_nick"/>
+        <result property="userName" column="user_name"/>
+        <result property="userBindMoblie" column="user_bind_moblie"/>
+        <result property="password" column="user_password"/>
+        <result property="urlHeadUrl" column="user_headUrl"/>
+        <result property="userCity" column="user_city"/>
+        <result property="userCreateTime" column="user_create_time"/>
+    </resultMap>
+    
     <resultMap id="categroyMap" type="edu.nf.xianyu.entity.Categroy">
         <id property="categroyId" column="categroy_id"/>
         <result property="categroyCode" column="category_code"/>
@@ -34,8 +50,10 @@
         select  * from commodity_info
     </select>
 
-    <update id="updateCommodity" parameterType="edu.nf.xianyu.entity.Commodity">
-            update
-    </update>
+    <select id="getCommodityByUserId" resultMap="commodityMap" parameterType="string">
+        select c.user_bind_moblie from
+			 commodity_info a  join user_commid b on a.commodity_id = b.commodity_id
+			  join user_info c on c.user_id = b.user_id where c.user_bind_moblie=#{phomeNum}
+    </select>
 
 </mapper>
