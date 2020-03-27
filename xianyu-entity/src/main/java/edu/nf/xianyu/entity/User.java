@@ -8,6 +8,7 @@ import java.text.DateFormat;
 /**
  * @author LWP
  * @date 2020/3/6
+ * 用户实体
  */
 @Data
 public class User {

@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 /**
  * @author LWP
  * @date 2020/3/7
+ * 商品图片表
  */
 @Data
 public class CommodityPic {
