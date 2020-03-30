@@ -1,4 +1,4 @@
-package edu.nf.xianyu.commodity;
+package edu.nf.xianyu.shopping;
 
 import com.github.pagehelper.PageInfo;
 import edu.nf.xianyu.entity.Commodity;

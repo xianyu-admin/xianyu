@@ -1,7 +1,7 @@
-package edu.nf.xianyu.commodity.impl;
+package edu.nf.xianyu.shopping.impl;
 
 import com.github.pagehelper.PageInfo;
-import edu.nf.xianyu.commodity.CommodityService;
+import edu.nf.xianyu.shopping.CommodityService;
 import edu.nf.xianyu.entity.Commodity;
 import edu.nf.xianyu.shopping.dao.CommodityDao;
 import org.springframework.beans.factory.annotation.Autowired;
