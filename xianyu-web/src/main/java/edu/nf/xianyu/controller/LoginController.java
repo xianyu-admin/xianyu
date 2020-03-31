@@ -30,6 +30,7 @@ public class LoginController extends BaseController {
     @DeleteMapping("/auth/delete")
     public ResponseVo deleteUser(int userId){
         service.deleteUser(userId);
+        System.out.println();
         return success("删除成功");
     }
 
