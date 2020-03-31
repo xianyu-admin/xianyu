@@ -15,6 +15,13 @@ public class BaseController<T> {
         return vo;
     }
 
+    public ResponseVo success(String message){
+        ResponseVo vo = new ResponseVo();
+        vo.setCode(200);
+        vo.setMessage(message);
+        return vo;
+    }
+
     public ResponseVo<T> error(Object message){
         ResponseVo vo = new ResponseVo();
         vo.setCode(500);

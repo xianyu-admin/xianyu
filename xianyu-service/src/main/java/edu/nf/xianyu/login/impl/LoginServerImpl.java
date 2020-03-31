@@ -40,6 +40,24 @@ public class LoginServerImpl implements LoginService {
         }catch(Exception e){
             throw new XianyuException("服务器错误");
         }
+    }
 
+    @Override
+    public void deleteUser(int userId) {
+        try{
+            dao.deleteUser(userId);
+        }catch(Exception e){
+            throw new XianyuException("服务器错误");
+        }
+
+    }
+
+    @Override
+    public void updateUser(User user) {
+        try{
+            dao.updateUser(user);
+        }catch(Exception e){
+            throw new XianyuException("服务器错误");
+        }
     }
 }
