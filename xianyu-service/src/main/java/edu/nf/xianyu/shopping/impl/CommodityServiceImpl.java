@@ -1,6 +1,7 @@
 package edu.nf.xianyu.shopping.impl;
 
 import com.github.pagehelper.PageInfo;
+import edu.nf.xianyu.exception.XianyuException;
 import edu.nf.xianyu.shopping.CommodityService;
 import edu.nf.xianyu.entity.Commodity;
 import edu.nf.xianyu.shopping.dao.CommodityDao;
@@ -21,7 +22,12 @@ public class CommodityServiceImpl implements CommodityService {
     @Override
     @Cacheable(value = "cache1")
     public PageInfo<Commodity> getCommodity(Integer pageNum,Integer pageSize) {
-        PageInfo<Commodity> pageInfo = new PageInfo<>(dao.getCommodity(pageNum,pageSize));
-        return pageInfo;
+        try{
+            PageInfo<Commodity> pageInfo = new PageInfo<>(dao.getCommodity(pageNum,pageSize));
+            return pageInfo;
+        }catch(Exception e){
+            throw new XianyuException("服务器错误");
+        }
+
     }
 }
