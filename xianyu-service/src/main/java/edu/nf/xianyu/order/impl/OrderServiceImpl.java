@@ -6,12 +6,14 @@ import edu.nf.xianyu.order.OrderService;
 import edu.nf.xianyu.order.dao.OrderDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author LWP
  * @date 2020/4/1
  */
 @Service
+@Transactional(rollbackFor = RuntimeException.class)
 public class OrderServiceImpl implements OrderService {
 
     @Autowired

@@ -14,6 +14,12 @@
         <result property="userCreateTime" column="user_create_time"/>
     </resultMap>
 
+    <insert id="saveUser" parameterType="edu.nf.xianyu.entity.User">
+        insert into
+        user_info(user_nick,user_name,user_bind_moblie,user_password,user_headUrl,user_city,user_create_time)
+        values (#{userNick},#{userName},#{userBindMoblie},#{password},#{urlHeadUrl},#{userCity},#{userCreateTime})
+    </insert>
+
     <select id="userLogin" resultMap="userMap" parameterType="string">
         select * from user_info where user_bind_moblie=#{param1} and user_password=#{param2}
     </select>
@@ -55,5 +61,7 @@
                 user_id=#{userId}
             </where>
     </update>
+
+
 
 </mapper>

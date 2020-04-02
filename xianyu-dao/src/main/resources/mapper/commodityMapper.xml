@@ -24,4 +24,10 @@
         select  * from commodity_info
     </select>
 
+    <insert id="saveCommodity" parameterType="edu.nf.xianyu.entity.Commodity">
+        insert into
+        commodity_info(category_id,commodity_name,commodity_price,commodity_lable,commodity_spec,commodity_desc,commodity_sep,commodity_orgin,commodity_pci,commodity_status,create_time,update_time)
+        values(#{categroyId},#{commodityName},#{commodityPrice},#{commodityLable},#{commoditySpec},#{commodityDesc},#{commoditySep},#{commodityOrgin},#{commodityPci},#{commodityStatus},#{createTime},#{updateTime})
+    </insert>
+
 </mapper>

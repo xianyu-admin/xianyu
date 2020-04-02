@@ -35,6 +35,4 @@
         delete from order_info where =user_id=#{userId}
     </delete>
 
-
-
 </mapper>

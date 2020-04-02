@@ -16,8 +16,14 @@ public class OrderController extends BaseController {
     @Autowired
     private OrderService service;
 
-    @GetMapping("get_order")
+    @GetMapping("order/get_order")
     public ResponseVo getOrder(Integer pageNum,Integer pageSize){
         return success(service.getOrder(pageNum,pageSize));
+    }
+
+    @GetMapping("order/delete_order")
+    public ResponseVo deleteOrder(Integer userId){
+        service.deleteOrder(userId);
+        return success("删除成功");
     }
 }

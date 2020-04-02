@@ -8,6 +8,7 @@ import edu.nf.xianyu.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
  * @date 2020/3/6
  */
 @Service
+@Transactional(rollbackFor = RuntimeException.class)
 public class LoginServerImpl implements LoginService {
 
     @Autowired
@@ -56,6 +58,16 @@ public class LoginServerImpl implements LoginService {
     public void updateUser(User user) {
         try{
             dao.updateUser(user);
+        }catch(Exception e){
+            throw new XianyuException("服务器错误");
+        }
+    }
+
+    @Override
+
+    public void saveUser(User user) {
+        try{
+            dao.saveUser(user);
         }catch(Exception e){
             throw new XianyuException("服务器错误");
         }

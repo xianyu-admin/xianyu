@@ -13,7 +13,7 @@ import java.util.List;
 public interface CommodityDao {
 
     List<Commodity> getCommodity(@Param("pageNum") Integer pageNum,@Param("pageSize") Integer pageSize);
-
+    void saveCommodity(Commodity commodity);
 
 
 }
