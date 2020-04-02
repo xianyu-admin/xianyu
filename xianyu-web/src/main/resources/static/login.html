@@ -99,7 +99,7 @@
 
 						$("#btn").on("click",function () {
 							$.ajax({
-								url:'http://118.126.65.3:8088/xianyu/uauth/login',
+								url:'http://118.126.65.3:8088/xianyu/auth/login',
 								type:'get',
 								data:{"userName":$("#userName").val(),"password":$("#password").val()},
 								success:function (result) {
