@@ -15,7 +15,7 @@
 		<meta name="description" content="网站简介" />
 		<!-- 网站简介 -->
 		<meta name="keywords" content="搜索关键字，以半角英文逗号隔开" />
-		<title>穷在闹市出品</title>
+		<title>咸鱼出品</title>
 
 		<!-- 公共样式 开始 -->
 		<link rel="shortcut icon" href="images/favicon.ico"/>
@@ -99,7 +99,7 @@
 
 						$("#btn").on("click",function () {
 							$.ajax({
-								url:'auth/login',
+								url:'http://118.126.65.3:8088/xianyu/xianyuauth/login',
 								type:'get',
 								data:{"userName":$("#userName").val(),"password":$("#password").val()},
 								success:function (result) {
