@@ -27,26 +27,26 @@ public class LoginController extends BaseController {
         return success(user);
     }
 
-    @DeleteMapping("/auth/delete")
+    @GetMapping("/auth/delete")
     public ResponseVo deleteUser(int userId){
         service.deleteUser(userId);
         System.out.println();
         return success("删除成功");
     }
 
-    @PostMapping("/auth/update")
+    @GetMapping("/auth/update")
     public ResponseVo updateUser(User user){
         service.updateUser(user);
         return success("修改成功");
     }
 
-    @PostMapping("/auth/save")
+    @GetMapping("/auth/save")
     public ResponseVo saveUser(User user){
         service.saveUser(user);
         return success("添加成功");
     }
 
-    @PostMapping("/auth/listUser")
+    @GetMapping("/auth/listUser")
     public ResponseVo listUser(Integer pageNum,Integer pageSize){
         return success(service.listUser(pageNum,pageSize));
     }
