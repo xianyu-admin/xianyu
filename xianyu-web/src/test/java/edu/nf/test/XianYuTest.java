@@ -30,9 +30,14 @@ public class XianYuTest {
 
     @Test
     void listUser(){
-        int i =service.listUser(1,2).getList().size();
-        System.out.println(i);
+//        int i =service.listUser(1,2).getList().size();
+//        System.out.println(i);
+        User user = new User();
+        user.setPassword("1234");
+        user.setUserId(1);
+        service.updateUser(user);
     }
+
 
     @Test
     void saveUserTest(){

@@ -36,25 +36,25 @@
         update user_info
             <trim prefix="set" prefixOverrides=",">
                 <if test="userNick != null and userNick!=''">
-                    user_nick=#{userNick},
+                    user_nick=#{userNick}
                 </if>
                 <if test="userBindMoblie != null and userBindMoblie!=''">
-                    user_bind_moblie=#{userBindMoblie},
+                    user_bind_moblie=#{userBindMoblie}
                 </if>
                 <if test="password != null and password!=''">
-                    user_password=#{password},
+                    user_password=#{password}
                 </if>
                 <if test="urlHeadUrl != null and urlHeadUrl!=''">
-                    user_nick=#{urlHeadUrl},
+                    user_nick=#{urlHeadUrl}
                 </if>
                 <if test="userNick != null and userNick!=''">
-                    user_headUrl=#{userNick},
+                    user_headUrl=#{userNick}
                 </if>
                 <if test="userCity != null and userCity!=''">
-                    user_city=#{userCity},
+                    user_city=#{userCity}
                 </if>
                 <if test="userCreateTime != null and userCreateTime!=''">
-                    user_create_time=#{userCreateTime},
+                    user_create_time=#{userCreateTime}
                 </if>
             </trim>
             <where>
