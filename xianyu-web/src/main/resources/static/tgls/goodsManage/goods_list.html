@@ -6,6 +6,8 @@
 		<title>穷在闹市出品</title>
 
 		<!-- 公共样式 开始 -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="../../css/pagination.css" rel="stylesheet"/>
 		<link rel="stylesheet" type="text/css" href="../../css/base.css">
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
 		<script type="text/javascript" src="../../framework/jquery-1.11.3.min.js"></script>
@@ -117,82 +119,110 @@
 			
 			<!-- layUI 分页模块 -->
 			<div id="pages"></div>
+			<script src="../../js/jquery-1.12.4.min.js"></script>
+			<script src="../../js/jquery.pagination.js"></script>
 			<script>
-				layui.use('laypage', function() {
-					var laypage = layui.laypage;
-				
-					//总页数大于页码总数
-					laypage.render({
-					    elem: 'pages'
-					    ,count: 100
-					    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
-					    ,jump: function(obj){
-//					      console.log(obj)
-					    }
-					});
-				});
-				//修改规格
-				function specificationsBut(){
-					layui.use('layer', function() {
-						var layer = layui.layer;
-						
-						//iframe层-父子操作
-						layer.open({
-							type: 2,
-							area: ['70%', '60%'],
-							fixed: false, //不固定
-							maxmin: true,
-							content: 'specifications_list.html'
-						});
-					});
-					
-				}
-				//修改按钮
-				var updateFrame = null;
-				function updateBut(){
-					layui.use('layer', function() {
-						var layer = layui.layer;
-							
-						//iframe层-父子操作
-						updateFrame = layer.open({
-                    		title: "商品信息修改",
-							type: 2,
-							area: ['70%', '60%'],
-							scrollbar: false,	//默认：true,默认允许浏览器滚动，如果设定scrollbar: false，则屏蔽
-							maxmin: true,
-							content: 'goods_update.html'
-						});
-					});
-					
-				}
+// 				layui.use('laypage', function() {
+// 					var laypage = layui.laypage;
+//
+// 					//总页数大于页码总数
+// 					laypage.render({
+// 					    elem: 'pages'
+// 					    ,count: 100
+// 					    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+// 					    ,jump: function(obj){
+// //					      console.log(obj)
+// 					    }
+// 					});
+// 				});
+// 				//修改规格
+// 				function specificationsBut(){
+// 					layui.use('layer', function() {
+// 						var layer = layui.layer;
+//
+// 						//iframe层-父子操作
+// 						layer.open({
+// 							type: 2,
+// 							area: ['70%', '60%'],
+// 							fixed: false, //不固定
+// 							maxmin: true,
+// 							content: 'specifications_list.html'
+// 						});
+// 					});
+//
+// 				}
+// 				//修改按钮
+// 				var updateFrame = null;
+// 				function updateBut(){
+// 					layui.use('layer', function() {
+// 						var layer = layui.layer;
+//
+// 						//iframe层-父子操作
+// 						updateFrame = layer.open({
+//                     		title: "商品信息修改",
+// 							type: 2,
+// 							area: ['70%', '60%'],
+// 							scrollbar: false,	//默认：true,默认允许浏览器滚动，如果设定scrollbar: false，则屏蔽
+// 							maxmin: true,
+// 							content: 'goods_update.html'
+// 						});
+// 					});
+//
+// 				}
 
 				$(function () {
 					$.ajax({
-						url:"http://118.126.65.3:8088/xianyu/shopping/get_commodity",
+						url:"http://localhost:8088/xianyu/shopping/get_commodity",
 						data:{"pageNum":1,"pageSize":10},
 						type:"get",
 						success:function (result) {
+							console.log(result)
 							if (result.code==200){
-								$('#tab tr:not(:first)').remove();
-								$.each(result.data.list,function (index,val) {
-									$("#tab").append("<tr>\n" +
-											"<td>"+val.commodityName+"</td>\n" +
-											"<td><img src=\"../../images/goodsPIC1.png\" width=\"20\" height=\"20\" onmouseenter=\"imgBig(this)\" onmouseleave=\"imgSmall(this)\"/></td>\n" +
-											"<td>"+val.commodityPrice+"</td>\n" +
-											"<td>"+val.commodityLable+"</td>\n" +
-											"<td>"+val.commodityDesc+"</td>\n" +
-											"<td>"+val.commodityDesc+"</td>\n" +
-											"<td>\n" +
-											"<button class=\"layui-btn layui-btn-xs\" onclick=\"updateBut()\">修改</button>\n" +
-											"<button class=\"layui-btn layui-btn-xs\" onclick=\"specificationsBut()\">规格</button>\n" +
-											"</td>\n" +
-											"</tr>")
-								})
-
+								addTable(result)
 							}
 						}
 					})
 				})
+				function addTable(result) {
+					$('#tab tr:not(:first)').remove();
+					$.each(result.data.list,function (index,val) {
+						$("#tab").append("<tr>\n" +
+								"<td>"+val.commodityName+"</td>\n" +
+								"<td><img src=\"../../images/goodsPIC1.png\" width=\"20\" height=\"20\" onmouseenter=\"imgBig(this)\" onmouseleave=\"imgSmall(this)\"/></td>\n" +
+								"<td>"+val.commodityPrice+"</td>\n" +
+								"<td>"+val.commodityLable+"</td>\n" +
+								"<td>"+val.commodityDesc+"</td>\n" +
+								"<td>"+val.commodityDesc+"</td>\n" +
+								"<td>\n" +
+								"<button class=\"layui-btn layui-btn-xs\" onclick=\"updateBut()\">修改</button>\n" +
+								"<button class=\"layui-btn layui-btn-xs\" onclick=\"specificationsBut()\">规格</button>\n" +
+								"</td>\n" +
+								"</tr>")
+					})
+				}
+
+				function page(pageInfo){
+					$("#pages").pagination(pageInfo.total,{ //第一个参数指定共多少条记录
+						items_per_page:pageInfo.pageSize, // 每页显示多少条记录
+						next_text:">", //下一页按钮图标
+						prev_text:"<", //上一页按钮图标
+						num_display_entries:5,//主体页数
+						num_edge_entries: 2, //边缘页数
+						callback: function(index){//定义一个回调函数，用于每次点击页码发起分页查询请求
+							//index为当前页码，只不过下标是从0开始，因此需要+1操作
+							var pageNum = ++index;
+							$.ajax({
+								url : 'http://localhost:8088/xianyu/shopping/get_commodity',
+								method : 'post',
+								data : {'pageNum' : pageNum, 'pageSize' : 5},
+								success : function(result){
+									//渲染表格
+									addTable(result);
+								}
+							});
+						}
+					});
+				}
 			</script>
 		</div>
 	</body>
