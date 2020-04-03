@@ -14,6 +14,12 @@
         <result property="userCreateTime" column="user_create_time"/>
     </resultMap>
 
+    <insert id="saveUser" parameterType="edu.nf.xianyu.entity.User">
+        insert into
+        user_info(user_nick,user_name,user_bind_moblie,user_password,user_headUrl,user_city,user_create_time)
+        values (#{userNick},#{userName},#{userBindMoblie},#{password},#{urlHeadUrl},#{userCity},#{userCreateTime})
+    </insert>
+
     <select id="userLogin" resultMap="userMap" parameterType="string">
         select * from user_info where user_bind_moblie=#{param1} and user_password=#{param2}
     </select>
@@ -30,30 +36,32 @@
         update user_info
             <trim prefix="set" prefixOverrides=",">
                 <if test="userNick != null and userNick!=''">
-                    user_nick=#{userNick},
+                    user_nick=#{userNick}
                 </if>
                 <if test="userBindMoblie != null and userBindMoblie!=''">
-                    user_bind_moblie=#{userBindMoblie},
+                    user_bind_moblie=#{userBindMoblie}
                 </if>
                 <if test="password != null and password!=''">
-                    user_password=#{password},
+                    user_password=#{password}
                 </if>
                 <if test="urlHeadUrl != null and urlHeadUrl!=''">
-                    user_nick=#{urlHeadUrl},
+                    user_nick=#{urlHeadUrl}
                 </if>
                 <if test="userNick != null and userNick!=''">
-                    user_headUrl=#{userNick},
+                    user_headUrl=#{userNick}
                 </if>
                 <if test="userCity != null and userCity!=''">
-                    user_city=#{userCity},
+                    user_city=#{userCity}
                 </if>
                 <if test="userCreateTime != null and userCreateTime!=''">
-                    user_create_time=#{userCreateTime},
+                    user_create_time=#{userCreateTime}
                 </if>
             </trim>
             <where>
                 user_id=#{userId}
             </where>
     </update>
+
+
 
 </mapper>

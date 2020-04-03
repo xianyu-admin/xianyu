@@ -14,4 +14,7 @@ public interface LoginService {
 
     User userLogin(String userName,String password);
     PageInfo<User> listUser(Integer pageNum, Integer pageSize);
+    void deleteUser(int userId);
+    void updateUser(User user);
+    void saveUser(User user);
 }

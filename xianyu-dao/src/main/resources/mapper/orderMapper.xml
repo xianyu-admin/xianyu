@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.xianyu.order.dao.OrderDao">
+
+    <resultMap id="orderMap" type="edu.nf.xianyu.entity.Order">
+        <id property="orderId" column="order_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="commodityId" column="commodity_id"/>
+        <result property="orderAnount" column="order_anount"/>
+        <result property="orderPrice" column="order_price"/>
+        <result property="orderTotal" column="order_total"/>
+    </resultMap>
+    <resultMap id="commodityMap" type="edu.nf.xianyu.entity.Commodity">
+        <id property="commodityId" column="commodity_id"/>
+        <result property="categroyId" column="category_id"/>
+        <result property="commodityName" column="commodity_name"/>
+        <result property="commodityPrice" column="commodity_price"/>
+        <result property="commodityLable" column="commodity_lable"/>
+        <result property="commoditySpec" column="commodity_spec"/>
+        <result property="commodityDesc" column="commodity_desc"/>
+        <result property="commoditySep" column="commodity_sep"/>
+        <result property="commodityOrgin" column="commodity_orgin"/>
+        <result property="commodityPci" column="commodity_pci"/>
+        <result property="commodityStatus" column="commodity_status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <select id="getOrder" resultMap="orderMap">
+        select * from order_info
+    </select>
+
+    <delete id="deleteOrder" parameterType="integer">
+        delete from order_info where =user_id=#{userId}
+    </delete>
+
+</mapper>
