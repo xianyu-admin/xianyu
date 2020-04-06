@@ -14,6 +14,6 @@ public class Order {
     private int userId;
     private int commodityId;
     private int orderAnount;
-    private String orderPrice;
-    private String orderTotal;
+    private int orderPrice;
+    private double orderTotal;
 }

@@ -31,8 +31,20 @@
         select * from order_info
     </select>
 
+    <select id="getOrderById" resultMap="orderMap" parameterType="integer">
+        select * from order_info where user_id = #{userId}
+    </select>
+
     <delete id="deleteOrder" parameterType="integer">
         delete from order_info where =user_id=#{userId}
     </delete>
+    <insert id="saveOrder" parameterType="edu.nf.xianyu.entity.Order">
+        insert into order_info (user_id,commodity_id,order_anount,order_price,order_total) values
+        (#{userId},#{commodityId},#{orderAnount},#{orderPrice},#{orderTotal});
+    </insert>
+    
+    <update id="updateOrder" parameterType="order">
+
+    </update>
 
 </mapper>

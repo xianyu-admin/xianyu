@@ -1,8 +1,10 @@
 package edu.nf.test;
 
 import edu.nf.xianyu.entity.Commodity;
+import edu.nf.xianyu.entity.Order;
 import edu.nf.xianyu.login.LoginService;
 import edu.nf.xianyu.entity.User;
+import edu.nf.xianyu.order.OrderService;
 import edu.nf.xianyu.shopping.CommodityService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,5 +83,25 @@ public class XianYuTest {
         commodityService.saveCommodity(commodity);
     }
 
+    @Autowired
+    private OrderService orderService;
+
+    @Test
+    void testOrder(){
+        int i =orderService.getOrder(1,10).getList().size();
+        System.out.println(i);
+    }
+
+    @Test
+    void testSaveOrder(){
+        Order order = new Order();
+        order.setUserId(1);
+        order.setCommodityId(4);
+        order.setOrderAnount(2);
+        order.setOrderPrice(200);
+        order.setOrderTotal(order.getOrderPrice()*order.getOrderAnount());
+        orderService.saveOrder(order);
+
+    }
 
 }

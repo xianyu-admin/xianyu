@@ -1,6 +1,7 @@
 package edu.nf.xianyu.controller;
 
 import edu.nf.xianyu.controller.vo.ResponseVo;
+import edu.nf.xianyu.entity.Order;
 import edu.nf.xianyu.order.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,4 +27,24 @@ public class OrderController extends BaseController {
         service.deleteOrder(userId);
         return success("删除成功");
     }
+
+    @GetMapping("order/getOrderBuId")
+    public ResponseVo getOrderBuId(Integer userId){
+        service.getOrderById(userId);
+        return success("删除成功");
+    }
+
+    @GetMapping("order/save_order")
+    public ResponseVo saveOrder(Order order){
+        service.saveOrder(order);
+        return success("删除成功");
+    }
+
+    @GetMapping("order/update_order")
+    public ResponseVo updateOrder(Order order){
+        service.updateOrder(order);
+        return success("删除成功");
+    }
+
+
 }

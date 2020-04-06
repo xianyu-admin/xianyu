@@ -12,5 +12,8 @@ import java.util.List;
 public interface OrderDao {
 
     List<Order> getOrder(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
+    List<Order> getOrderById(Integer userId);
     void deleteOrder(Integer userId);
+    void updateOrder(Order order);
+    void saveOrder(Order order);
 }
