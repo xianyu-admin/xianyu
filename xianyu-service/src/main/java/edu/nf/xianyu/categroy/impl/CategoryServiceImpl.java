@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import edu.nf.xianyu.categroy.CategroyService;
 import edu.nf.xianyu.categroy.dao.CategroyDao;
 import edu.nf.xianyu.entity.Categroy;
+import edu.nf.xianyu.exception.XianyuException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class CategoryServiceImpl implements CategroyService {
             log.info("添加成功");
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException("服务器内部出错，添加失败");
+            throw new XianyuException("服务器内部出错，添加失败");
         }
     }
 
@@ -43,7 +44,7 @@ public class CategoryServiceImpl implements CategroyService {
             return pageInfo;
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException("服务器内部出错，无法查询");
+            throw new XianyuException("服务器内部出错，无法查询");
         }
     }
 }
