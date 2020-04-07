@@ -10,5 +10,6 @@ import edu.nf.xianyu.entity.Commodity;
 public interface CommodityService {
 
     PageInfo<Commodity> getCommodity(Integer pageNum,Integer pageSize);
+
     void saveCommodity(Commodity commodity);
 }

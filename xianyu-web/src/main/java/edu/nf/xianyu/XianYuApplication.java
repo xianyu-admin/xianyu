@@ -12,6 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan(basePackages = {"edu.nf.xianyu.login.dao","edu.nf.xianyu.shopping.dao","edu.nf.xianyu.order.dao","edu.nf.xianyu.categroy.dao"})
 public class XianYuApplication {
     public static void main(String[] args) {
-       SpringApplication.run(XianYuApplication.class,args);
+        SpringApplication.run(XianYuApplication.class,args);
     }
 }
