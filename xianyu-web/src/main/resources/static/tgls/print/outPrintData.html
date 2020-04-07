@@ -28,113 +28,89 @@
 		<script src="../../framework/jquery-ui-1.10.4.min.js"></script>
 		<script src="../../framework/jquery.mousewheel.min.js"></script>
 		<script src="../../framework/jquery.mCustomScrollbar.min.js"></script>
-		<script src="../../framework/cframe.js"></script><!-- 仅供所有子页面使用 -->
-		<script src="../../framework/printThis.js"></script>
+		<script src="../../framework/cframe.js"></script>
 		<!-- 公共样式 结束 -->
-		
-
 	</head>
 
 	<body>
-		<div class="cBody">
+	    <div class="cBody">
 			<div class="console">
-				<div class="layui-form-item">
-					<a class="layui-btn layui-btn-sm layui-btn-normal" onclick="printTable('dayindaju1')">打印</a>
-				</div>
-			</div>
-			
-			<div class="layui-row" id="dayindaju1">
-				<table class="layui-table printTable">
-					<tbody>
-						<tr>
-							<td class="printName" colspan="7">入库单</td>
-						</tr>
-						<tr>
-							<td class="printDis" colspan="7">
-								<span>单据日期：2018-03-09 10:10:29</span>
-								<span class="right">单据编号：DJ9562154640003</span>
-								<span>入库类型：采购入库</span>
-							</td>
-						</tr>
-						<tr>
-							<th width="8%" class="textCenter">序号</th>
-							<th width="20%">商品名称</th>
-							<th width="10%" class="textCenter">单位</th>
-							<th width="10%" class="textCenter">入库数量</th>
-							<th width="10%" class="textCenter">入库单价</th>
-							<th width="10%" class="textCenter">入库金额</th>
-							<th>数据备注</th>
-						</tr>
-						<tr>
-							<td class="textCenter">1</td>
-							<td>电子产品</td>
-							<td class="textCenter">箱</td>
-							<td class="textCenter">100</td>
-							<td class="textCenter">56</td>
-							<td class="textCenter">56</td>
-							<td>单品备注</td>
-						</tr>
-						<tr>
-							<td class="textCenter">2</td>
-							<td>电子产品</td>
-							<td class="textCenter">箱</td>
-							<td class="textCenter">100</td>
-							<td class="textCenter">56</td>
-							<td class="textCenter">56</td>
-							<td>单品备注</td>
-						</tr>
-						<tr>
-							<td class="textCenter">3</td>
-							<td>电子产品</td>
-							<td class="textCenter">箱</td>
-							<td class="textCenter">100</td>
-							<td class="textCenter">56</td>
-							<td class="textCenter">56</td>
-							<td>单品备注</td>
-						</tr>
-						<tr>
-							<td class="textCenter">4</td>
-							<td>电子产品</td>
-							<td class="textCenter">箱</td>
-							<td class="textCenter">100</td>
-							<td class="textCenter">56</td>
-							<td class="textCenter">56</td>
-							<td>单品备注</td>
-						</tr>
-						<tr>
-							<td class="textCenter">5</td>
-							<td>电子产品</td>
-							<td class="textCenter">箱</td>
-							<td class="textCenter">100</td>
-							<td class="textCenter">56</td>
-							<td class="textCenter">56</td>
-							<td>单品备注</td>
-						</tr>
-			            <tr>
-			                <td class="textCenter">总计</td>
-			                <td></td>
-			                <td></td>
-							<td class="textCenter">100</td>
-							<td class="textCenter">56</td>
-							<td class="textCenter">56</td>
-			                <td></td>
-			            </tr>
-						<tr>
-							<td class="printOperator" colspan="7">
-								<span>经手人：张三</span>
-								<span class="right">打印日期：2018-03-10 10:24:03</span>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 		</div>
+
+		<table id="tab" class="layui-table">
+			<thead>
+			<tr>
+				<th>商品ID</th>
+				<th>评论ID</th>
+				<th>用户ID</th>
+				<th>评论内容</th>
+				<th>创建时间</th>
+				<th>更新时间</th>
+				<th>操作</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>龙九山</td>
+				<td>DLS201802281450280741</td>
+				<td>无锡市</td>
+				<td>龙九山</td>
+				<td>龙九山</td>
+				<td>
+					<button class="layui-btn layui-btn-xs">修改</button>
+					<button class="layui-btn layui-btn-xs">基本信息</button>
+				</td>
+			</tr>
+			<tr>
+				<td>龙九山</td>
+				<td>DLS201802281450280741</td>
+				<td>无锡市</td>
+				<td>龙九山</td>
+				<td>龙九山</td>
+				<td>18600001111</td>
+				<td>028-6666666</td>
+				<td>123456789@qq.com</td>
+				<td>
+					<button class="layui-btn layui-btn-xs">修改</button>
+					<button class="layui-btn layui-btn-xs">基本信息</button>
+				</td>
+			</tr>
+			<tr>
+				<td>龙九山</td>
+				<td>DLS201802281450280741</td>
+				<td>无锡市</td>
+				<td>龙九山</td>
+				<td>龙九山</td>
+				<td>18600001111</td>
+				<td>028-6666666</td>
+				<td>123456789@qq.com</td>
+				<td>
+					<button class="layui-btn layui-btn-xs">修改</button>
+					<button class="layui-btn layui-btn-xs">基本信息</button>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<!-- layUI 分页模块 -->
+		<div id="pages"></div>
 		<script>
-			//打印方法
-		    function printTable(id){
-		    	$('#'+id).printThis({ importCss: true, importStyle: true });
-		    }
+			layui.use(['laypage', 'layer'], function() {
+				var laypage = layui.laypage,
+						layer = layui.layer;
+
+				//总页数大于页码总数
+				laypage.render({
+					elem: 'pages'
+					,count: 100
+					,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+					,jump: function(obj){
+						console.log(obj)
+					}
+				});
+			});
 		</script>
+		</div>
 	</body>
 
 </html>

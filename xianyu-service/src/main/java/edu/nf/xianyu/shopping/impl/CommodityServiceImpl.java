@@ -40,4 +40,5 @@ public class CommodityServiceImpl implements CommodityService {
             throw new XianyuException("服务器错误");
         }
     }
+
 }
