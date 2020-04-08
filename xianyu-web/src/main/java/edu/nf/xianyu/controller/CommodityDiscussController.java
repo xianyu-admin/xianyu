@@ -21,6 +21,7 @@ public class CommodityDiscussController extends BaseController{
         return success(service.getCommodityDiscuss(pageNum, pageSize));
     }
 
+    @GetMapping("discuss/delete_discuss")
     public ResponseVo deleteCommodityDiscussById(Integer id){
         service.deleteCommodityDisxussById(id);
         return success("删除成功");

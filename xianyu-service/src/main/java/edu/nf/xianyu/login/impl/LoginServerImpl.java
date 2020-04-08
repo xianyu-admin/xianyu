@@ -24,7 +24,6 @@ public class LoginServerImpl implements LoginService {
     private LoginDao dao;
 
     @Override
-    @Cacheable(value = "cache1",key = "#userName")
     public User userLogin(String userName,String password) {
         User user = dao.userLogin(userName,password);
         if(user==null){

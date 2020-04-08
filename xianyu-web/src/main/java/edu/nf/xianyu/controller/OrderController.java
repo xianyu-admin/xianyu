@@ -30,20 +30,19 @@ public class OrderController extends BaseController {
 
     @GetMapping("order/getOrderBuId")
     public ResponseVo getOrderBuId(Integer userId){
-        service.getOrderById(userId);
-        return success("删除成功");
+        return success(service.getOrderById(userId));
     }
 
     @GetMapping("order/save_order")
     public ResponseVo saveOrder(Order order){
         service.saveOrder(order);
-        return success("删除成功");
+        return success("添加成功");
     }
 
     @GetMapping("order/update_order")
     public ResponseVo updateOrder(Order order){
         service.updateOrder(order);
-        return success("删除成功");
+        return success("修改成功");
     }
 
 
