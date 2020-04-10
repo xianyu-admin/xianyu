@@ -169,7 +169,7 @@
 							title: "商品信息修改",
 							type: 2,
 							area: ['70%', '60%'],
-							scrollbar: false,	//默认：true,默认允许浏览器滚动，如果设定scrollbar: false，则屏蔽
+							scrollbar: true,	//默认：true,默认允许浏览器滚动，如果设定scrollbar: false，则屏蔽
 							maxmin: true,
 							content: 'order_update.html'
 						});
@@ -198,11 +198,11 @@
 								"<td>无锡市</td>\n" +
 								"<td>"+val.userId+"</td>\n" +
 								"<td>"+val.commodityId+"</td>\n" +
-								"<td>"+val.orderAnount+"</td>\n" +
+								"<td>"+val.orderAnount+"</td>\n"+
 								"<td>"+val.orderPrice+"</td>\n" +
 								"<td>"+val.orderTotal+"</td>\n" +
 								"<td>\n" +
-								"<button><a href=\"javascript:void(0)\" onclick=\"menuCAClick('tgls/order/order_update.html',this)\">品类列表</a></button>\n" +
+								"<button class='layui-btn layui-btn-xs' onclick='updateBut()'>修改</button>"+
 								"<button class=\"layui-btn layui-btn-xs\">基本信息</button>\n" +
 								"</td>\n" +
 								"</tr>")
