@@ -56,7 +56,7 @@ public class OrderServiceImpl implements OrderService {
         try{
             dao.saveOrder(order);
         }catch(Exception e){
-            throw new RuntimeException(e);
+            throw new RuntimeException("服务器错误");
         }
     }
 
@@ -65,7 +65,7 @@ public class OrderServiceImpl implements OrderService {
         try{
             dao.updateOrder(order);
         }catch(Exception e){
-            throw new RuntimeException(e);
+            throw new RuntimeException("服务器错误");
         }
     }
 }

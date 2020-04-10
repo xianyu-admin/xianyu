@@ -43,8 +43,28 @@
         (#{userId},#{commodityId},#{orderAnount},#{orderPrice},#{orderTotal});
     </insert>
     
-    <update id="updateOrder" parameterType="order">
-
+    <update id="updateOrder" parameterType="edu.nf.xianyu.entity.Order">
+        update order_info
+            <trim prefix="set" suffixOverrides=",">
+                <if test="userId != null and userId != ''">
+                    user_id=#{userId},
+                </if>
+                <if test="commodityId != null and commodityId != ''">
+                    commodity_id=#{commodityId},
+                </if>
+                <if test="orderAnount != null and orderAnount != ''">
+                    order_anount=#{orderAnount},
+                </if>
+                <if test="orderPrice != null and orderPrice != ''">
+                    order_price=#{orderPrice},
+                </if>
+                <if test="orderTotal != null and orderTotal != ''">
+                    order_total=#{orderTotal},
+                </if>
+            </trim>
+            <where>
+                order_id = #{orderId}
+            </where>
     </update>
 
 </mapper>

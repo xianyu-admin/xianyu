@@ -30,5 +30,53 @@
         values(#{categroyId},#{commodityName},#{commodityPrice},#{commodityLable},#{commoditySpec},#{commodityDesc},#{commoditySep},#{commodityOrgin},#{commodityPci},#{commodityStatus},#{createTime},#{updateTime})
     </insert>
 
+    <delete id="deleteCommodity" parameterType="integer">
+        delete from commodity_info where commodity_id=#{commodityId}
+    </delete>
+
+    <update id="updateCommodity" parameterType="edu.nf.xianyu.entity.Commodity">
+        update commodity_info
+        <trim prefix="set" suffixOverrides=",">
+            <if test="categroyId != null and categroyId !=''">
+                category_id = #{categroyId},
+            </if>
+            <if test="commodityName != null and commodityName !=''">
+                commodity_name =#{commodityName},
+            </if>
+            <if test="commodityPrice != null and commodityPrice !=''">
+                commodity_price =#{commodityPrice},
+            </if>
+            <if test="commodityLable != null and commodityLable !=''">
+                commodity_lable =#{commodityLable},
+            </if>
+            <if test="commoditySpec != null and commoditySpec !=''">
+                commodity_spec =#{commoditySpec},
+            </if>
+            <if test="commodityDesc != null and commodityDesc !=''">
+                commodity_desc =#{commodityDesc},
+            </if>
+            <if test="commoditySep != null and commoditySep !=''">
+                commodity_sep =#{commoditySep},
+            </if>
+            <if test="commodityOrgin != null and commodityOrgin !=''">
+                commodity_orgin =#{commodityOrgin},
+            </if>
+            <if test="commodityPci != null and commodityPci !=''">
+                commodity_pci =#{commodityPci},
+            </if>
+            <if test="commodityStatus != null and commodityStatus !=''">
+                commodity_status =#{commodityStatus},
+            </if>
+            <if test="createTime != null and createTime !=''">
+                create_time =#{createTime},
+            </if>
+            <if test="updateTime != null and updateTime !=''">
+                update_time =#{updateTime},
+            </if>
+        </trim>
+        <where>
+            commodity_id= #{commodityId}
+        </where>
+    </update>
 
 </mapper>

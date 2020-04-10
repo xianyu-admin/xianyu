@@ -27,4 +27,16 @@ public class CommodityController extends BaseController {
         service.saveCommodity(commodity);
         return success("添加成功");
     }
+
+    @GetMapping("shopping/delete_commodity")
+    public ResponseVo deleteCommodity(Integer commodityId){
+        service.deleteCommodity(commodityId);
+        return success("删除成功");
+    }
+
+    @GetMapping
+    public ResponseVo updateCommodity(Commodity commodity){
+        service.updateCommodity(commodity);
+        return success("修改成功");
+    }
 }

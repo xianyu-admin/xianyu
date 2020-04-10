@@ -16,5 +16,8 @@ public interface CommodityDao {
 
     void saveCommodity(Commodity commodity);
 
+    void deleteCommodity(Integer commodityId);
+
+    void updateCommodity(Commodity commodity);
 
 }

@@ -12,4 +12,8 @@ public interface CommodityService {
     PageInfo<Commodity> getCommodity(Integer pageNum,Integer pageSize);
 
     void saveCommodity(Commodity commodity);
+
+    void deleteCommodity(Integer commodityId);
+
+    void updateCommodity(Commodity commodity);
 }

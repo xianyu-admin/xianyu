@@ -41,4 +41,21 @@ public class CommodityServiceImpl implements CommodityService {
         }
     }
 
+    @Override
+    public void deleteCommodity(Integer commodityId) {
+        try{
+            dao.deleteCommodity(commodityId);
+        }catch(Exception e){
+            throw new XianyuException("服务器错误");
+        }
+    }
+
+    @Override
+    public void updateCommodity(Commodity commodity) {
+        try{
+            dao.updateCommodity(commodity);
+        }catch(Exception e){
+            throw new XianyuException("服务器错误");
+        }
+    }
 }
