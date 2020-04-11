@@ -6,17 +6,23 @@
         <id property="categroyId" column="categroy_id"/>
         <result property="categroyCode" column="categroy_code"/>
         <result property="categroyName" column="categroy_name"/>
-        <result property="categroyLeve" column="categroy_leve"/>
+        <result property="categroyLeve" column="categroy_level"/>
         <result property="categroySeq" column="categroy_seq"/>
         <result property="endFlag" column="end_flag"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
     </resultMap>
     <insert id="saveCategroy" parameterType="edu.nf.xianyu.entity.Categroy">
-        insert into categroy_info (categroy_id,categroy_code,categroy_name,categroy_leve,categroy_seq,end_flag,create_time,update_time) values
+        insert into categroy_info (categroy_id,categroy_code,categroy_name,categroy_level,categroy_seq,end_flag,create_time,update_time) values
          (#{categroyId},#{categroyCode},#{categroyName},#{categroyLeve},#{categroySeq},#{endFlag},#{createTime},#{updateTime});
     </insert>
     <select id="listCategroy" resultMap="categropMap">
         select * from categroy_info
     </select>
+    <delete id="deleteCategroy" parameterType="java.lang.Integer">
+        delete from categroy_info where categroy_id = #{categroyId}
+    </delete>
+    <update id="updateCategroy" parameterType="edu.nf.xianyu.entity.Categroy">
+        update categroy_info set categroy_code = #{categroyCode},categroy_name = #{categroyName},categroy_level = #{categroyLeve},categroy_seq = #{categroySeq},end_flag = #{endFlag},create_time = #{createTime},update_time = #{updateTime} where categroy_id = #{categroyId}
+    </update>
 </mapper>

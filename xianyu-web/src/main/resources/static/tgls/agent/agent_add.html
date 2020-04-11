@@ -63,6 +63,9 @@
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">排序号</label>
+					<div class="layui-input-inline shortInput">
+						<input type="text" name="title" required lay-verify="required|ZHCheck" autocomplete="off" class="layui-input">
+					</div>
 <!--	                <div class="layui-input-inline">-->
 <!--	                    <select name="provid" id="provid" lay-filter="provid">-->
 <!--	                    </select>-->
@@ -75,8 +78,9 @@
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">是否底层标识</label>
-					<div class="layui-input-inline shortInput">
-						<input type="text" name="realName" required lay-verify="required|ZHCheck" placeholder="例:张三(只允许输入中文)" autocomplete="off" class="layui-input">
+					<div class="layui-input-block">
+						<input type="radio" name="sex" value="nan" title="是" checked>
+						<input type="radio" name="sex" value="nv" title="否">
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -121,13 +125,13 @@
 <!--						<textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>-->
 <!--					</div>-->
 <!--				</div>-->
-				<div class="layui-form-item">
-					<label class="layui-form-label">是否开通</label>
-					<div class="layui-input-block">
-						<input type="radio" name="sex" value="nan" title="启用" checked>
-						<input type="radio" name="sex" value="nv" title="禁用">
-					</div>
-				</div>
+<!--				<div class="layui-form-item">-->
+<!--					<label class="layui-form-label">是否开通</label>-->
+<!--					<div class="layui-input-block">-->
+<!--						<input type="radio" name="sex" value="nan" title="启用" checked>-->
+<!--						<input type="radio" name="sex" value="nv" title="禁用">-->
+<!--					</div>-->
+<!--				</div>-->
 				
 				<div class="layui-form-item">
 					<div class="layui-input-block">

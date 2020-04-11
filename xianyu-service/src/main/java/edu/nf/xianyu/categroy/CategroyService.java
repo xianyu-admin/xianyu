@@ -12,4 +12,6 @@ import org.apache.ibatis.annotations.Param;
 public interface CategroyService {
     void saveCategroy(Categroy categroy);
     PageInfo<Categroy> listCategroy(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
+    void deleteCategroy(Integer categroyId);
+    void updateCategroy(Integer categroyId,Categroy categroy);
 }

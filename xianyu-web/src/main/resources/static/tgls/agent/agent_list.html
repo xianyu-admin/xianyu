@@ -47,66 +47,128 @@
 					});
 				</script>
 			</div>
-			
-			<table id="tab" class="layui-table">
-				<thead>
-					<tr>
-						<th>分管名称</th>
-						<th>分管编码</th>
-						<th>所属区域</th>
-						<th>负责人</th>
-						<th>登录名</th>
-						<th>联系方式</th>
-						<th>传真</th>
-						<th>邮箱</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>龙九山</td>
-						<td>DLS201802281450280741</td>
-						<td>无锡市</td>
-						<td>龙九山</td>
-						<td>龙九山</td>
-						<td>18600001111</td>
-						<td>028-6666666</td>
-						<td>123456789@qq.com</td>
-						<td>
-							<button class="layui-btn layui-btn-xs">修改</button>
-							<button class="layui-btn layui-btn-xs">基本信息</button>
-						</td>
-					</tr>
-					<tr>
-						<td>龙九山</td>
-						<td>DLS201802281450280741</td>
-						<td>无锡市</td>
-						<td>龙九山</td>
-						<td>龙九山</td>
-						<td>18600001111</td>
-						<td>028-6666666</td>
-						<td>123456789@qq.com</td>
-						<td>
-							<button class="layui-btn layui-btn-xs">修改</button>
-							<button class="layui-btn layui-btn-xs">基本信息</button>
-						</td>
-					</tr>
-					<tr>
-						<td>龙九山</td>
-						<td>DLS201802281450280741</td>
-						<td>无锡市</td>
-						<td>龙九山</td>
-						<td>龙九山</td>
-						<td>18600001111</td>
-						<td>028-6666666</td>
-						<td>123456789@qq.com</td>
-						<td>
-							<button class="layui-btn layui-btn-xs">修改</button>
-							<button class="layui-btn layui-btn-xs">基本信息</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<table id="categroyInfoQuery" lay-filter="LAY-app-content-comm"></table>
+			<script>
+				layui.use('table',function () {
+					var table = layui.table;
+
+
+					//方法级渲染
+					table.render({
+						elem: '#categroyInfoQuery'
+						, url: '/categroy/list_categroy' //向后端默认传page和limit
+						,response: {
+							statusName: 'code' //规定数据状态的字段名称，默认：code
+							,statusCode: 200 //规定成功的状态码，默认：0
+						}
+						,parseData: function(res){ //res 即为原始返回的数据
+							return {
+								"code": res.code, //解析接口状态
+								"msg": res.message, //解析提示文本
+								"count": res.data.total, //解析数据长度
+								"data": res.data.list //解析数据列表
+							};
+						}
+						,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+						,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+							title: '提示'
+							,layEvent: 'LAYTABLE_TIPS'
+							,icon: 'layui-icon-tips'
+						}]
+						, cols: [[
+							{type: 'checkbox', fixed: 'left'}
+							, {field: 'stuId', title: '品类id', sort: true, hide: true}
+							, {field: 'stuNum', title: '品类编码', sort: true, fixed: true}
+							, {field: 'stuName', title: '品类名称'}
+							, {field: 'stuSex', title: '层级', sort: true}
+							, {field: 'stuBirthday', title: '排序号', sort: true}
+							, {field: 'grade', title: '是否底层标识', sort: true}
+							, {field: 'stuDegree', title: '创建时间', sort: true}
+							, {field: 'aClass', title: '更新时间', sort: true}
+							, {title: '操作', minWidth: 150, align: 'center', fixed: 'right', toolbar: '#table-content-list1'}
+						]]
+						, page: true
+						, limit: 10
+						, limits: [5, 10, 15, 20]
+						, request: {
+							pageName: 'pageNum',
+							limitName: 'pageSize'  //如不配置，默认为page=1&limit=10
+						}
+						, done: function (res, curr, count) {
+							//如果是异步请求数据方式，res即为你接口返回的信息。
+							//如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+							//console.log(res);
+
+							//得到当前页码
+							//console.log(curr);
+
+							//得到数据总量
+							//console.log(count);
+						}
+
+					});
+				})
+			</script>
+
+
+			<!--			<table id="tab" class="layui-table">-->
+<!--				<thead>-->
+<!--					<tr>-->
+<!--						<th>品类编码</th>-->
+<!--						<th>品类名称</th>-->
+<!--						<th>层级</th>-->
+<!--						<th>排序号</th>-->
+<!--						<th>是否底层标识</th>-->
+<!--						<th>创建时间</th>-->
+<!--						<th>更新时间</th>-->
+<!--						<th>操作</th>-->
+<!--					</tr>-->
+<!--				</thead>-->
+<!--				<tbody>-->
+<!--					<tr>-->
+<!--						<td>龙九山</td>-->
+<!--						<td>DLS201802281450280741</td>-->
+<!--						<td>无锡市</td>-->
+<!--						<td>龙九山</td>-->
+<!--						<td>龙九山</td>-->
+<!--						<td>18600001111</td>-->
+<!--						<td>028-6666666</td>-->
+<!--						<td>123456789@qq.com</td>-->
+<!--						<td>-->
+<!--							<button class="layui-btn layui-btn-xs">修改</button>-->
+<!--							<button class="layui-btn layui-btn-xs">基本信息</button>-->
+<!--						</td>-->
+<!--					</tr>-->
+<!--					<tr>-->
+<!--						<td>龙九山</td>-->
+<!--						<td>DLS201802281450280741</td>-->
+<!--						<td>无锡市</td>-->
+<!--						<td>龙九山</td>-->
+<!--						<td>龙九山</td>-->
+<!--						<td>18600001111</td>-->
+<!--						<td>028-6666666</td>-->
+<!--						<td>123456789@qq.com</td>-->
+<!--						<td>-->
+<!--							<button class="layui-btn layui-btn-xs">修改</button>-->
+<!--							<button class="layui-btn layui-btn-xs">基本信息</button>-->
+<!--						</td>-->
+<!--					</tr>-->
+<!--					<tr>-->
+<!--						<td>龙九山</td>-->
+<!--						<td>DLS201802281450280741</td>-->
+<!--						<td>无锡市</td>-->
+<!--						<td>龙九山</td>-->
+<!--						<td>龙九山</td>-->
+<!--						<td>18600001111</td>-->
+<!--						<td>028-6666666</td>-->
+<!--						<td>123456789@qq.com</td>-->
+<!--						<td>-->
+<!--							<button class="layui-btn layui-btn-xs">修改</button>-->
+<!--							<button class="layui-btn layui-btn-xs">基本信息</button>-->
+<!--						</td>-->
+<!--					</tr>-->
+<!--				</tbody>-->
+<!--			</table>-->
 			
 			<!-- layUI 分页模块 -->
 			<div id="pages"></div>
