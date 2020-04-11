@@ -16,4 +16,6 @@ public interface CommodityService {
     void deleteCommodity(Integer commodityId);
 
     void updateCommodity(Commodity commodity);
+
+    String getEsCommodity(String url);
 }

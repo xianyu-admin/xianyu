@@ -1,0 +1,5 @@
+spring:
+  elasticsearch:
+    rest:
+      connection-timeout: 2s
+      uris: http://127.0.0.1:9200

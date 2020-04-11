@@ -13,8 +13,8 @@ import java.sql.Timestamp;
  * @author LWP
  * @date 2020/4/10
  */
-@SpringBootTest
-@SpringBootApplication(scanBasePackages = "edu.nf.xianyu")
+//@SpringBootTest
+//@SpringBootApplication(scanBasePackages = "edu.nf.xianyu")
 public class CommodityTest {
     @Autowired
     private CommodityService commodityService;
