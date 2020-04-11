@@ -17,14 +17,28 @@ public class CategroyController extends BaseController {
 
     @Autowired
     private CategroyService service;
+
     @GetMapping("categroy/list_categroy")
     public ResponseVo <PageInfo<Categroy>> listCategroy(Integer pageNum , Integer pageSize){
         PageInfo<Categroy> pageInfo = service.listCategroy(pageNum, pageSize);
         return success(pageInfo);
     }
+
     @GetMapping("categroy/insert_categroy")
     public ResponseVo insertCategroy(Categroy categroy){
         service.saveCategroy(categroy);
         return success("添加成功");
+    }
+
+    @GetMapping("categroy/delete_categroy")
+    public ResponseVo deteleCategroy(Integer categroyId){
+        service.deleteCategroy(categroyId);
+        return success("删除成功");
+    }
+
+    @GetMapping("categroy/update_categroy")
+    public ResponseVo updateCategroy(Integer categroyId , Categroy categroy){
+        service.updateCategroy(categroyId, categroy);
+        return success("修改成功");
     }
 }

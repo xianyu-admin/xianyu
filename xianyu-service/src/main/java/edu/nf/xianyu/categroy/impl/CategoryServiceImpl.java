@@ -47,4 +47,24 @@ public class CategoryServiceImpl implements CategroyService {
             throw new XianyuException("服务器内部出错，无法查询");
         }
     }
+
+    @Override
+    public void deleteCategroy(Integer categroyId) {
+        try{
+            dao.deleteCategroy(categroyId);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new XianyuException("服务器内部错误，删除失败");
+        }
+    }
+
+    @Override
+    public void updateCategroy(Integer categroyId,Categroy categroy) {
+        try{
+            dao.updateCategroy(categroyId,categroy);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new XianyuException("服务器内部异常，修改失败");
+        }
+    }
 }
