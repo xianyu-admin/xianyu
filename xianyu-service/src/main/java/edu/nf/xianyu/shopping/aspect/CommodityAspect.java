@@ -31,4 +31,8 @@ public class CommodityAspect extends AbstractAspect {
         Commodity commodity = (Commodity) objects[0];
         esConfig.index(commodity);
     }
+    @After("addCommodity()")
+    public void getShopping(JoinPoint jp){
+        Iterable<Commodity> it = esConfig.findAll();
+    }
 }

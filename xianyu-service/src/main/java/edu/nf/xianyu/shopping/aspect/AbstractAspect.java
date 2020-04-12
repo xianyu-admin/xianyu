@@ -9,4 +9,6 @@ import org.aspectj.lang.annotation.Pointcut;
 public class AbstractAspect {
     @Pointcut("execution(* edu.nf.xianyu.shopping.impl.CommodityServiceImpl.saveCommodity(..))")
     protected void addEs(){}
+    @Pointcut("execution(* edu.nf.xianyu.shopping.impl.CommodityServiceImpl.getCommodity(..))")
+    protected void addCommodity(){}
 }

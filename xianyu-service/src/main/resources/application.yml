@@ -1,2 +1,2 @@
 spring:
-  profiles: redis,es
+  profiles: redis
