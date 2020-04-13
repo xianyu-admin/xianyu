@@ -10,8 +10,8 @@ import org.springframework.web.client.RestTemplate;
  * @author LWP
  * @date 2020/4/11
  */
-@SpringBootTest
-@SpringBootApplication(scanBasePackages = "edu.nf.xianyu")
+//@SpringBootTest
+//@SpringBootApplication(scanBasePackages = "edu.nf.xianyu")
 public class RestTest {
 
     @Autowired

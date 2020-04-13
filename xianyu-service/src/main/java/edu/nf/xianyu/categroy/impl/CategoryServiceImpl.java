@@ -28,7 +28,7 @@ public class CategoryServiceImpl implements CategroyService {
     @Override
     public void saveCategroy(Categroy categroy) {
         try{
-            dao.saveCategroy(categroy);
+            dao.saveCategory(categroy);
             log.info("添加成功");
         }catch (Exception e){
             e.printStackTrace();

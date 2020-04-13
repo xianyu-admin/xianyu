@@ -13,10 +13,10 @@ import java.sql.Timestamp;
 public class Categroy {
 
     private int categroyId;
-    private int categroyCode;
-    private String categroyName;
-    private String categroyLeve;
-    private String categroySeq;
+    private int categoryCode;
+    private String categoryName;
+    private String categoryLevel;
+    private String categorySeq;
     private String endFlag;
     private Timestamp createTime;
     private Timestamp updateTime;

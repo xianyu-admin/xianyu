@@ -14,8 +14,8 @@ import java.sql.Timestamp;
  * @author LWP
  * @date 2020/4/10
  */
-//@SpringBootTest
-//@SpringBootApplication(scanBasePackages = "edu.nf.xianyu")
+@SpringBootTest
+@SpringBootApplication(scanBasePackages = "edu.nf.xianyu")
 public class CategroyTest {
 
     @Autowired
@@ -24,23 +24,23 @@ public class CategroyTest {
     @Test
     public void saveCategroy() {
         Categroy categroy = new Categroy();
-        categroy.setCategroyCode(001);
-        categroy.setCategroyName("鸡肉类");
-        categroy.setCategroyLeve("大类");
-        categroy.setCategroySeq("1");
+        categroy.setCategoryCode(001);
+        categroy.setCategoryName("手机类");
+        categroy.setCategoryLevel("时尚手机");
+        categroy.setCategorySeq("1");
         categroy.setEndFlag("是");
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         categroy.setCreateTime(timestamp);
         categroy.setUpdateTime(timestamp);
         categroyService.saveCategroy(categroy);
-        System.out.println(categroy.getCategroyName());
+        System.out.println(categroy.getCategoryName());
     }
 
     @Test
     public void listCategroy() {
         PageInfo<Categroy> categroy = categroyService.listCategroy(1,5);
         for (Categroy categroy1 : categroy.getList()) {
-            System.out.println(categroy1.getCategroyCode());
+            System.out.println(categroy1.getCategroyId());
         }
     }
 }

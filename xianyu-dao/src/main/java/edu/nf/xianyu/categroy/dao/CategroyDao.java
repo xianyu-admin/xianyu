@@ -10,7 +10,7 @@ import java.util.List;
  * @date 2020-04-07
  */
 public interface CategroyDao {
-    void saveCategroy(Categroy categroy);
+    void saveCategory(Categroy categroy);
     List<Categroy> listCategroy(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
     void deleteCategroy(@Param("categroyId") Integer categroyId);
     void updateCategroy(@Param("categroyId") Integer categroyId,Categroy categroy);
