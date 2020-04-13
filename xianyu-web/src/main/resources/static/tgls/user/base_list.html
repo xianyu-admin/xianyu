@@ -82,63 +82,21 @@
 				</script>
 			</div>
 			
-			<table class="layui-table">
+			<table class="layui-table" id="user_list">
 				<thead>
 					<tr>
-						<th>分管名称</th>
-						<th>分管编码</th>
-						<th>所属区域</th>
-						<th>负责人</th>
-						<th>登录名</th>
-						<th>联系方式</th>
-						<th>传真</th>
-						<th>邮箱</th>
+						<th>id</th>
+						<th>用户昵称</th>
+						<th>用户名</th>
+						<th>用户绑定手机号</th>
+						<th>用户密码</th>
+						<th>用户头像</th>
+						<th>用户所在城市</th>
+						<th>用户注册时间</th>
 						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>龙九山</td>
-						<td>DLS201802281450280741</td>
-						<td>无锡市</td>
-						<td>龙九山</td>
-						<td>龙九山</td>
-						<td>18600001111</td>
-						<td>028-6666666</td>
-						<td>123456789@qq.com</td>
-						<td>
-							<button class="layui-btn layui-btn-xs">修改</button>
-							<button class="layui-btn layui-btn-xs">基本信息</button>
-						</td>
-					</tr>
-					<tr>
-						<td>龙九山</td>
-						<td>DLS201802281450280741</td>
-						<td>无锡市</td>
-						<td>龙九山</td>
-						<td>龙九山</td>
-						<td>18600001111</td>
-						<td>028-6666666</td>
-						<td>123456789@qq.com</td>
-						<td>
-							<button class="layui-btn layui-btn-xs">修改</button>
-							<button class="layui-btn layui-btn-xs">基本信息</button>
-						</td>
-					</tr>
-					<tr>
-						<td>龙九山</td>
-						<td>DLS201802281450280741</td>
-						<td>无锡市</td>
-						<td>龙九山</td>
-						<td>龙九山</td>
-						<td>18600001111</td>
-						<td>028-6666666</td>
-						<td>123456789@qq.com</td>
-						<td>
-							<button class="layui-btn layui-btn-xs">修改</button>
-							<button class="layui-btn layui-btn-xs">基本信息</button>
-						</td>
-					</tr>
 				</tbody>
 			</table>
 			
@@ -159,6 +117,36 @@
 					    }
 					});
 				});
+
+				$(function () {
+					$.ajax({
+						url:"http://localhost:8088/xianyu/auth/listUser",
+						type:"get",
+						data:{"pageNum":1,"pageSize":10},
+						success:function (result) {
+							console.log(result)
+							if(result.code==200){
+								$('#user_list tr:not(:first)').remove();
+								$.each(result.data.list,function (index,val) {
+									$("#user_list").append("<tr>\n" +
+											"<td>"+val.userId+"</td>\n" +
+											"<td>"+val.userNick+"</td>\n" +
+											"<td>"+val.userName+"</td>\n" +
+											"<td>"+val.userBindMoblie+"</td>\n" +
+											"<td>"+val.password+"</td>\n" +
+											"<td>"+val.urlHeadUrl+"</td>\n" +
+											"<td>"+val.userCity+"</td>\n" +
+											"<td>"+val.userCreateTime+"</td>\n" +
+											"<td>\n" +
+											"<button class=\"layui-btn layui-btn-xs\">修改</button>\n" +
+											"<button class=\"layui-btn layui-btn-xs\">基本信息</button>\n" +
+											"</td>\n" +
+											"</tr>")
+								})
+							}
+						}
+					})
+				})
 			</script>
 		</div>
 	</body>
