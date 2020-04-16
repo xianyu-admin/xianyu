@@ -24,4 +24,7 @@ public interface CommodityDiscussDao {
      * @param id
      */
     void deleteCommodityDiscussById(Integer id);
+
+    void saveCommodityDiscuss(CommodityDiscuss commodityDiscuss);
+
 }

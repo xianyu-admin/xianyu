@@ -31,9 +31,18 @@ public class CommodityDiscussServiceImpl implements CommodityDiscussService {
     }
 
     @Override
-    public void deleteCommodityDisxussById(Integer id) {
+    public void deleteCommodityDiscussById(Integer id) {
         try {
             dao.deleteCommodityDiscussById(id);
+        } catch (Exception e) {
+            throw new XianyuException("服务器错误");
+        }
+    }
+
+    @Override
+    public void saveCommodityDiscuss(CommodityDiscuss commodityDiscuss) {
+        try {
+            dao.saveCommodityDiscuss(commodityDiscuss);
         } catch (Exception e) {
             throw new XianyuException("服务器错误");
         }

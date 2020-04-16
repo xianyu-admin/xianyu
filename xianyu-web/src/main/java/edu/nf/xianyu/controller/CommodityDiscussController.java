@@ -2,8 +2,11 @@ package edu.nf.xianyu.controller;
 
 import edu.nf.xianyu.controller.vo.ResponseVo;
 import edu.nf.xianyu.discuss.CommodityDiscussService;
+import edu.nf.xianyu.entity.CommodityDiscuss;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -23,7 +26,13 @@ public class CommodityDiscussController extends BaseController{
 
     @GetMapping("discuss/delete_discuss")
     public ResponseVo deleteCommodityDiscussById(Integer id){
-        service.deleteCommodityDisxussById(id);
+        service.deleteCommodityDiscussById(id);
         return success("删除成功");
+    }
+
+    @RequestMapping("discuss/save_discuss")
+    public ResponseVo saveCommodityDiscuss(CommodityDiscuss commodityDiscuss){
+        service.saveCommodityDiscuss(commodityDiscuss);
+        return success("添加成功");
     }
 }

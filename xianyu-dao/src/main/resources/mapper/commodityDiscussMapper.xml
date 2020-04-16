@@ -19,4 +19,9 @@
     <delete id="deleteCommodityDiscussById" parameterType="integer">
         delete from commodity_discuss_info where discuss_id = #{id}
     </delete>
+
+    <insert id="saveCommodityDiscuss" parameterType="edu.nf.xianyu.entity.CommodityDiscuss">
+        insert into commodity_discuss_info (commodity_id,user_id,discuss_content,create_time,update_time)
+        values (#{commodityId},#{userId},#{discussContent},#{createTime},#{updateTime});
+    </insert>
 </mapper>

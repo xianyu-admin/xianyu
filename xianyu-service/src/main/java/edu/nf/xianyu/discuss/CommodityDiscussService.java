@@ -11,5 +11,7 @@ public interface CommodityDiscussService {
 
     PageInfo<CommodityDiscuss> getCommodityDiscuss(Integer pageNum,Integer pageSize);
 
-    void deleteCommodityDisxussById(Integer id);
+    void deleteCommodityDiscussById(Integer id);
+
+    void saveCommodityDiscuss(CommodityDiscuss commodityDiscuss);
 }
